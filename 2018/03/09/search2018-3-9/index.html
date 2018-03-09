@@ -79,13 +79,16 @@
 
 
 
+<meta name="description" content="import java.net.InetAddress;import java.util.Properties;import java.net.UnknownHostException;public class search { public static void main(String[] args) throws Exception {     InetAddress addr = Inet">
 <meta property="og:type" content="article">
-<meta property="og:title" content="20180309">
-<meta property="og:url" content="http://yoursite.com/2018/03/09/20180309/index.html">
+<meta property="og:title" content="&#39;search2018_3_9&#39;">
+<meta property="og:url" content="http://yoursite.com/2018/03/09/search2018-3-9/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:updated_time" content="2018-03-09T05:22:07.534Z">
+<meta property="og:description" content="import java.net.InetAddress;import java.util.Properties;import java.net.UnknownHostException;public class search { public static void main(String[] args) throws Exception {     InetAddress addr = Inet">
+<meta property="og:updated_time" content="2018-03-09T09:04:35.638Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="20180309">
+<meta name="twitter:title" content="&#39;search2018_3_9&#39;">
+<meta name="twitter:description" content="import java.net.InetAddress;import java.util.Properties;import java.net.UnknownHostException;public class search { public static void main(String[] args) throws Exception {     InetAddress addr = Inet">
 
 
 
@@ -115,13 +118,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/03/09/20180309/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/03/09/search2018-3-9/"/>
 
 
 
 
 
-  <title>20180309 | Hexo</title>
+  <title>'search2018_3_9' | Hexo</title>
   
 
 
@@ -228,7 +231,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/09/20180309/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/09/search2018-3-9/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="John Doe">
@@ -245,7 +248,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">20180309</h1>
+          <h1 class="post-title" itemprop="name headline">'search2018_3_9'</h1>
         
 
         <div class="post-meta">
@@ -257,7 +260,7 @@
               
                 <span class="post-meta-item-text">Veröffentlicht am</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-09T13:22:07+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-09T17:03:05+08:00">
                 2018-03-09
               </time>
             
@@ -295,7 +298,31 @@
       
 
       
-        
+        <p>import java.net.InetAddress;<br>import java.util.Properties;<br>import java.net.UnknownHostException;<br>public class search {</p>
+<pre><code>public static void main(String[] args) throws Exception {
+    InetAddress addr = InetAddress.getLocalHost();  
+    String ip=addr.getHostAddress().toString(); //获取本机ip  
+    String hostName=addr.getHostName().toString(); //获取本机计算机名称  
+    System.out.println(&quot;本机ip:&quot;+ip);
+    System.out.println(&quot;本机名字:&quot;+hostName);
+
+    Properties props=System.getProperties(); //获得系统属性集    
+     String osName = props.getProperty(&quot;os.name&quot;); //操作系统名称    
+     String osArch = props.getProperty(&quot;os.arch&quot;); //操作系统构架    
+     String osVersion = props.getProperty(&quot;os.version&quot;); //操作系统版本  
+     System.out.println(&quot;操作系统名称:&quot;+osName);
+     System.out.println(&quot;操作系统构架:&quot;+osArch);
+     System.out.println(&quot;操作系统版本:&quot;+osVersion);
+
+
+     //获取www.baidu.com的地址  
+     System.out.println(InetAddress.getByName(&quot;www.163.com&quot;));  
+     //获取www.baidu.com的真实IP地址  
+     System.out.println(InetAddress.getByName(&quot;www.163.com&quot;).getHostAddress());  
+     //获取配置在HOST中的域名IP地址  
+   // System.out.println(InetAddress.getByName(&quot;www.163.com&quot;).getHostAddress());   
+</code></pre><p>   }<br>}</p>
+
       
     </div>
     
@@ -319,8 +346,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/03/08/hello-hexo/" rel="next" title="Hello hexo">
-                <i class="fa fa-chevron-left"></i> Hello hexo
+              <a href="/2018/03/09/3/" rel="next" title="">
+                <i class="fa fa-chevron-left"></i> 
               </a>
             
           </div>
@@ -328,10 +355,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/03/09/3/" rel="prev" title="">
-                 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
