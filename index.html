@@ -181,7 +181,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            Home
           </a>
         </li>
       
@@ -191,7 +191,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            Archives
           </a>
         </li>
       
@@ -214,6 +214,163 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/29/安装hadoop简要记录/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="rheng">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Heng`s Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/03/29/安装hadoop简要记录/" itemprop="url">Untitled</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-29T09:02:47+08:00">
+                2018-03-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>title:安装hadoop简要记录</p>
+<p>date:2018-3-29 </p>
+<p>tag:hadoop</p>
+<hr>
+<h3 id="1、下载hadoop"><a href="#1、下载hadoop" class="headerlink" title="1、下载hadoop"></a>1、下载hadoop</h3><h3 id="2、下载jdk（linux版本）"><a href="#2、下载jdk（linux版本）" class="headerlink" title="2、下载jdk（linux版本）"></a>2、下载jdk（linux版本）</h3><h3 id="3、准备虚拟机"><a href="#3、准备虚拟机" class="headerlink" title="3、准备虚拟机"></a>3、准备虚拟机</h3><h3 id="4、配置SSH无密码登录"><a href="#4、配置SSH无密码登录" class="headerlink" title="4、配置SSH无密码登录"></a>4、配置SSH无密码登录</h3><p>​    （1）安装openssh-server</p>
+<p>​        apt-get install openssh-server  </p>
+<p>​      （2）创建ssh-key（用rsa这种加密算法）</p>
+<p>​        ssh-keygen -t rsa </p>
+<p>​      （3）多次回车即可，然后进入～/.ssh目录（“.”表示这是一个隐藏文件）</p>
+<p>​        cd ~/.ssh </p>
+<p>​         ll  </p>
+<p>​     （4）复制一份，改名为公钥</p>
+<p>​        cp id_rsa.pub authorized_keys </p>
+<p>​        ll </p>
+<p>​       （5）修改公钥权限（一定要改）</p>
+<p>​        chmod 600 authorized_keys #4+2 0 0</p>
+<p>​        ll</p>
+<h3 id="5、配置jdk"><a href="#5、配置jdk" class="headerlink" title="5、配置jdk"></a>5、配置jdk</h3><p>​        （1）修改环境变量</p>
+<p>​            sudo gedit ~/.bashrc</p>
+<p>​            打开之后在末尾添加</p>
+<p>​            export JAVA_HOME=/usr/local/java/jdk1.8.0_25<br>            export JRE_HOME=${JAVA_HOME}/jre<br>            export CLASSPATH=.:${JAVA_HOME}/lib:${JRE_HOME}/lib<br>            export PATH=${JAVA_HOME}/bin:$PATH</p>
+<h3 id="6、Hadoop伪分布式配置："><a href="#6、Hadoop伪分布式配置：" class="headerlink" title="6、Hadoop伪分布式配置："></a>6、Hadoop伪分布式配置：</h3><p>Hadoop 可以在单节点上以伪分布式的方式运行，Hadoop 进程以分离的 Java 进程来运行，节点既作为 NameNode 也作为 DataNode。</p>
+<p>Hadoop 的配置文件位于 /usr/local/hadoop/etc/hadoop/ 中，伪分布式需要修改2个配置文件 core-site.xml 和 hdfs-site.xml 。Hadoop的配置文件是 xml 格式，每个配置以声明 property 的 name 和 value 的方式来实现。</p>
+<p>修改配置文件 core-site.xml (/usr/local/hadoop/etc/hadoop/core-site.xml)</p>
+<configuration><br><br>   <property><br><br>​       <name>hadoop.tmp.dir</name><br><br>​       <value>file:/usr/local/hadoop/tmp</value><br><br>​       <description>Abase for other temporarydirectories.</description><br><br>   </property><br><br>   <property><br><br>​       <name>fs.defaultFS</name><br><br>​       <value>hdfs://localhost:9000</value><br><br>   </property><br><br></configuration>
+
+<p>同样的，修改配置文件 hdfs-site.xml：</p>
+<configuration><br><br>   <property><br><br>​       <name>dfs.replication</name><br><br>​       <value>1</value><br><br>   </property><br><br>   <property><br><br>​       <name>dfs.namenode.name.dir</name><br><br>​       <value>file:/usr/local/hadoop/tmp/dfs/name</value><br><br>   </property><br><br>   <property><br><br>​       <name>dfs.datanode.data.dir</name><br><br>​       <value>file:/usr/local/hadoop/tmp/dfs/data</value><br><br>​    </property><br><br></configuration>
+
+
+
+<p>配置完成后，执行 namenode 的格式化:</p>
+<p>bin/hdfs namenode–format</p>
+<p>成功的话，会看到 successfully formatted 的提示，且倒数第5行的提示如下，Exitting with status 0 表示成功，若为 Exitting with status 1 则是出错</p>
+<p> 开启 NaneNode 和 DataNode 守护进程。</p>
+<p>sbin/start-dfs.sh</p>
+<p> 启动完成后，可以通过命令 jps 来判断是否成功启动，若成功启动则会列出如下进程: NameNode、DataNode和SecondaryNameNode。（如果SecondaryNameNode没有启动，请运行 sbin/stop-dfs.sh 关闭进程，然后再次尝试启动尝试；如果 NameNode 或 DataNode 没有启动，请仔细检查之前步骤）。</p>
+<h3 id="7、最后检验成果"><a href="#7、最后检验成果" class="headerlink" title="7、最后检验成果"></a>7、最后检验成果</h3><p>打开浏览器 <a href="http://localhost:50070" target="_blank" rel="noopener">http://localhost:50070</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -257,7 +414,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-12T16:10:18+08:00">
                 2018-03-12
@@ -387,7 +544,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-09T17:03:05+08:00">
                 2018-03-09
@@ -520,7 +677,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/03/09/3/" itemprop="url">Unbenannt</a></h1>
+                <a class="post-title-link" href="/2018/03/09/3/" itemprop="url">Untitled</a></h1>
         
 
         <div class="post-meta">
@@ -530,7 +687,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-09T13:32:38+08:00">
                 2018-03-09
@@ -653,7 +810,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-09T13:22:07+08:00">
                 2018-03-09
@@ -772,7 +929,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-08T21:21:12+08:00">
                 2018-03-08
@@ -904,8 +1061,8 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">5</span>
-                  <span class="site-state-item-name">Artikel</span>
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">posts</span>
                 </a>
               </div>
             
@@ -955,7 +1112,7 @@
 </div>
 
 
-  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 

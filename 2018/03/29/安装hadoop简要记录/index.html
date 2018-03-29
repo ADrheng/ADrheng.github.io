@@ -79,16 +79,16 @@
 
 
 
-<meta name="description" content="title:2018/3 概述宗旨Markdown 的目标是实现「易读易写」。 可读性，无论如何，都是最重要的。一份使用 Markdown 格式撰写的文件应该可以直接以纯文本发布，并且看起来不会像是由许多标签或是格式指令所构成。Markdown 语法受到一些既有 text-to-HTML 格式的影响，包括 Setext、atx、Textile、reStructuredText、Grutatext">
+<meta name="description" content="title:安装hadoop简要记录 date:2018-3-29  tag:hadoop  1、下载hadoop2、下载jdk（linux版本）3、准备虚拟机4、配置SSH无密码登录​    （1）安装openssh-server ​        apt-get install openssh-server   ​      （2）创建ssh-key（用rsa这种加密算法） ​">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Heng`s Blog">
-<meta property="og:url" content="http://yoursite.com/2018/03/09/3/index.html">
+<meta property="og:url" content="http://yoursite.com/2018/03/29/安装hadoop简要记录/index.html">
 <meta property="og:site_name" content="Heng`s Blog">
-<meta property="og:description" content="title:2018/3 概述宗旨Markdown 的目标是实现「易读易写」。 可读性，无论如何，都是最重要的。一份使用 Markdown 格式撰写的文件应该可以直接以纯文本发布，并且看起来不会像是由许多标签或是格式指令所构成。Markdown 语法受到一些既有 text-to-HTML 格式的影响，包括 Setext、atx、Textile、reStructuredText、Grutatext">
-<meta property="og:updated_time" content="2018-03-09T05:32:38.975Z">
+<meta property="og:description" content="title:安装hadoop简要记录 date:2018-3-29  tag:hadoop  1、下载hadoop2、下载jdk（linux版本）3、准备虚拟机4、配置SSH无密码登录​    （1）安装openssh-server ​        apt-get install openssh-server   ​      （2）创建ssh-key（用rsa这种加密算法） ​">
+<meta property="og:updated_time" content="2018-03-29T01:24:55.522Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Heng`s Blog">
-<meta name="twitter:description" content="title:2018/3 概述宗旨Markdown 的目标是实现「易读易写」。 可读性，无论如何，都是最重要的。一份使用 Markdown 格式撰写的文件应该可以直接以纯文本发布，并且看起来不会像是由许多标签或是格式指令所构成。Markdown 语法受到一些既有 text-to-HTML 格式的影响，包括 Setext、atx、Textile、reStructuredText、Grutatext">
+<meta name="twitter:description" content="title:安装hadoop简要记录 date:2018-3-29  tag:hadoop  1、下载hadoop2、下载jdk（linux版本）3、准备虚拟机4、配置SSH无密码登录​    （1）安装openssh-server ​        apt-get install openssh-server   ​      （2）创建ssh-key（用rsa这种加密算法） ​">
 
 
 
@@ -118,7 +118,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/03/09/3/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/03/29/安装hadoop简要记录/"/>
 
 
 
@@ -231,7 +231,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/09/3/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/29/安装hadoop简要记录/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="rheng">
@@ -260,8 +260,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-09T13:32:38+08:00">
-                2018-03-09
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-29T09:02:47+08:00">
+                2018-03-29
               </time>
             
 
@@ -298,10 +298,44 @@
       
 
       
-        <h1 id="title-2018-3"><a href="#title-2018-3" class="headerlink" title="title:2018/3"></a>title:2018/3</h1><hr>
-<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><h3 id="宗旨"><a href="#宗旨" class="headerlink" title="宗旨"></a>宗旨</h3><p>Markdown 的目标是实现「易读易写」。</p>
-<p>可读性，无论如何，都是最重要的。一份使用 Markdown 格式撰写的文件应该可以直接以纯文本发布，并且看起来不会像是由许多标签或是格式指令所构成。Markdown 语法受到一些既有 text-to-HTML 格式的影响，包括 <a href="http://docutils.sourceforge.net/mirror/setext.html" target="_blank" rel="noopener">Setext</a>、<a href="http://www.aaronsw.com/2002/atx/" target="_blank" rel="noopener">atx</a>、<a href="http://textism.com/tools/textile/" target="_blank" rel="noopener">Textile</a>、<a href="http://docutils.sourceforge.net/rst.html" target="_blank" rel="noopener">reStructuredText</a>、<a href="http://www.triptico.com/software/grutatxt.html" target="_blank" rel="noopener">Grutatext</a> 和 <a href="http://ettext.taint.org/doc/" target="_blank" rel="noopener">EtText</a>，而最大灵感来源其实是纯文本电子邮件的格式。</p>
-<p>总之， Markdown 的语法全由一些符号所组成，这些符号经过精挑细选，其作用一目了然。比如：在文字两旁加上星号，看起来就像<em>强调</em>。Markdown 的列表看起来，嗯，就是列表。Markdown 的区块引用看起来就真的像是引用一段文字，就像你曾在电子邮件中见过的那样。</p>
+        <p>title:安装hadoop简要记录</p>
+<p>date:2018-3-29 </p>
+<p>tag:hadoop</p>
+<hr>
+<h3 id="1、下载hadoop"><a href="#1、下载hadoop" class="headerlink" title="1、下载hadoop"></a>1、下载hadoop</h3><h3 id="2、下载jdk（linux版本）"><a href="#2、下载jdk（linux版本）" class="headerlink" title="2、下载jdk（linux版本）"></a>2、下载jdk（linux版本）</h3><h3 id="3、准备虚拟机"><a href="#3、准备虚拟机" class="headerlink" title="3、准备虚拟机"></a>3、准备虚拟机</h3><h3 id="4、配置SSH无密码登录"><a href="#4、配置SSH无密码登录" class="headerlink" title="4、配置SSH无密码登录"></a>4、配置SSH无密码登录</h3><p>​    （1）安装openssh-server</p>
+<p>​        apt-get install openssh-server  </p>
+<p>​      （2）创建ssh-key（用rsa这种加密算法）</p>
+<p>​        ssh-keygen -t rsa </p>
+<p>​      （3）多次回车即可，然后进入～/.ssh目录（“.”表示这是一个隐藏文件）</p>
+<p>​        cd ~/.ssh </p>
+<p>​         ll  </p>
+<p>​     （4）复制一份，改名为公钥</p>
+<p>​        cp id_rsa.pub authorized_keys </p>
+<p>​        ll </p>
+<p>​       （5）修改公钥权限（一定要改）</p>
+<p>​        chmod 600 authorized_keys #4+2 0 0</p>
+<p>​        ll</p>
+<h3 id="5、配置jdk"><a href="#5、配置jdk" class="headerlink" title="5、配置jdk"></a>5、配置jdk</h3><p>​        （1）修改环境变量</p>
+<p>​            sudo gedit ~/.bashrc</p>
+<p>​            打开之后在末尾添加</p>
+<p>​            export JAVA_HOME=/usr/local/java/jdk1.8.0_25<br>            export JRE_HOME=${JAVA_HOME}/jre<br>            export CLASSPATH=.:${JAVA_HOME}/lib:${JRE_HOME}/lib<br>            export PATH=${JAVA_HOME}/bin:$PATH</p>
+<h3 id="6、Hadoop伪分布式配置："><a href="#6、Hadoop伪分布式配置：" class="headerlink" title="6、Hadoop伪分布式配置："></a>6、Hadoop伪分布式配置：</h3><p>Hadoop 可以在单节点上以伪分布式的方式运行，Hadoop 进程以分离的 Java 进程来运行，节点既作为 NameNode 也作为 DataNode。</p>
+<p>Hadoop 的配置文件位于 /usr/local/hadoop/etc/hadoop/ 中，伪分布式需要修改2个配置文件 core-site.xml 和 hdfs-site.xml 。Hadoop的配置文件是 xml 格式，每个配置以声明 property 的 name 和 value 的方式来实现。</p>
+<p>修改配置文件 core-site.xml (/usr/local/hadoop/etc/hadoop/core-site.xml)</p>
+<configuration><br><br>   <property><br><br>​       <name>hadoop.tmp.dir</name><br><br>​       <value>file:/usr/local/hadoop/tmp</value><br><br>​       <description>Abase for other temporarydirectories.</description><br><br>   </property><br><br>   <property><br><br>​       <name>fs.defaultFS</name><br><br>​       <value>hdfs://localhost:9000</value><br><br>   </property><br><br></configuration>
+
+<p>同样的，修改配置文件 hdfs-site.xml：</p>
+<configuration><br><br>   <property><br><br>​       <name>dfs.replication</name><br><br>​       <value>1</value><br><br>   </property><br><br>   <property><br><br>​       <name>dfs.namenode.name.dir</name><br><br>​       <value>file:/usr/local/hadoop/tmp/dfs/name</value><br><br>   </property><br><br>   <property><br><br>​       <name>dfs.datanode.data.dir</name><br><br>​       <value>file:/usr/local/hadoop/tmp/dfs/data</value><br><br>​    </property><br><br></configuration>
+
+
+
+<p>配置完成后，执行 namenode 的格式化:</p>
+<p>bin/hdfs namenode–format</p>
+<p>成功的话，会看到 successfully formatted 的提示，且倒数第5行的提示如下，Exitting with status 0 表示成功，若为 Exitting with status 1 则是出错</p>
+<p> 开启 NaneNode 和 DataNode 守护进程。</p>
+<p>sbin/start-dfs.sh</p>
+<p> 启动完成后，可以通过命令 jps 来判断是否成功启动，若成功启动则会列出如下进程: NameNode、DataNode和SecondaryNameNode。（如果SecondaryNameNode没有启动，请运行 sbin/stop-dfs.sh 关闭进程，然后再次尝试启动尝试；如果 NameNode 或 DataNode 没有启动，请仔细检查之前步骤）。</p>
+<h3 id="7、最后检验成果"><a href="#7、最后检验成果" class="headerlink" title="7、最后检验成果"></a>7、最后检验成果</h3><p>打开浏览器 <a href="http://localhost:50070" target="_blank" rel="noopener">http://localhost:50070</a></p>
 
       
     </div>
@@ -326,8 +360,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/03/09/20180309/" rel="next" title="20180309">
-                <i class="fa fa-chevron-left"></i> 20180309
+              <a href="/2018/03/12/python数组使用/" rel="next" title="python数组使用">
+                <i class="fa fa-chevron-left"></i> python数组使用
               </a>
             
           </div>
@@ -335,10 +369,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/03/09/search2018-3-9/" rel="prev" title="'search2018_3_9'">
-                'search2018_3_9' <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -452,7 +482,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#title-2018-3"><span class="nav-number">1.</span> <span class="nav-text">title:2018/3</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#概述"><span class="nav-number">1.1.</span> <span class="nav-text">概述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#宗旨"><span class="nav-number">1.1.1.</span> <span class="nav-text">宗旨</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、下载hadoop"><span class="nav-number">1.</span> <span class="nav-text">1、下载hadoop</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、下载jdk（linux版本）"><span class="nav-number">2.</span> <span class="nav-text">2、下载jdk（linux版本）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、准备虚拟机"><span class="nav-number">3.</span> <span class="nav-text">3、准备虚拟机</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4、配置SSH无密码登录"><span class="nav-number">4.</span> <span class="nav-text">4、配置SSH无密码登录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5、配置jdk"><span class="nav-number">5.</span> <span class="nav-text">5、配置jdk</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6、Hadoop伪分布式配置："><span class="nav-number">6.</span> <span class="nav-text">6、Hadoop伪分布式配置：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7、最后检验成果"><span class="nav-number">7.</span> <span class="nav-text">7、最后检验成果</span></a></li></ol></div>
             
 
           </div>
